@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:FrontendModule.Templates"
+             x:Class="FrontendModule.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <templates:GradientLabel
+                Text="Welcome to .NET Multi-platform App UI"
+                FontSize="36" FontAttributes="Bold"
+                GradientDegree="180"
+                TextColor="Red"
+                TextColor1="Orange"
+                TextColor2="Red"
+                HorizontalOptions="Center" />
+            
+            <templates:GradientLabel
+                Text="Welcome to .NET Multi-platform App UI"
+                FontSize="36" FontAttributes="Bold"
+                GradientDegree="180"
+                TextColor="Orange"
+                TextColor1="Yellow"
+                TextColor2="Orange"
+                HorizontalOptions="Center" />
+            
+            <templates:GradientLabel
+                Text="Welcome to .NET Multi-platform App UI"
+                FontSize="36" FontAttributes="Bold"
+                GradientDegree="180"
+                TextColor="Yellow"
+                TextColor1="LawnGreen"
+                TextColor2="Yellow"
+                HorizontalOptions="Center" />
+            
+            <templates:GradientLabel
+                IsVisible="false"
+                Text="Welcome to .NET Multi-platform App UI Welcome to .NET Multi-platform App UI Welcome to .NET Multi-platform App UI Welcome to .NET Multi-platform App UI Welcome to .NET Multi-platform App UI Welcome to .NET Multi-platform App UI Welcome to .NET Multi-platform App UI"
+                FontSize="36" FontAttributes="Bold"
+                GradientDegree="360" WidthRequest="650" LineBreakMode="WordWrap"
+                TextColor="Yellow"
+                TextColor1="#512BD4"
+                TextColor2="Yellow"
+                HorizontalOptions="Center" />
+            
+            <Button
+                Text="Show Popup Carousel"
+                FontAttributes="Bold" FontSize="24"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="PopupCarousel"
+                HorizontalOptions="Center" />
+
+            <ScrollView x:Name="TheCollectionView" BackgroundColor="LightBlue" Padding="10">
+                <VerticalStackLayout Spacing="16">
+                    <CollectionView
+                        SelectionMode="Single"
+                        ItemsSource="{Binding SomeItemSorce}"
+                        ItemsLayout="VerticalGrid, 4">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border x:Name="Items" Padding="20,10" Margin="0,30" Stroke="#D3DEEA" StrokeThickness="1" WidthRequest="260" Background="#272727">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10" />
+                                    </Border.StrokeShape>
+                                    <Label Text="{Binding .}" HorizontalTextAlignment="Center" FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroupList>
+                                            <VisualStateGroup x:Name="CommonStates">
+                                                <VisualState x:Name="Normal" />
+                                                <VisualState x:Name="Selected">
+                                                    <VisualState.Setters>
+                                                        <Setter TargetName="Items" Property="Border.BackgroundColor" Value="#000000" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateGroupList>
+                                    </VisualStateManager.VisualStateGroups>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Button FontAttributes="Bold" FontSize="24" Text="Load more.." BackgroundColor="Grey"
+                            HorizontalOptions="Center" IsVisible="{Binding LoadMoreVisible}" Clicked="LoadIncrementally"/>
+                </VerticalStackLayout>
+            </ScrollView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

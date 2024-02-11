@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            x:Class="FrontendModule.Templates.PopupCarousel" >
+    <AbsoluteLayout>
+        <Button Opacity="0.8" ZIndex="99" Padding="0" ImageSource="arrowleft.png" IsVisible="{Binding IsPreviousButtonVisible}" Clicked="PreviousCarousel" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.02,0.5,45,80"></Button>
+        <Button Opacity="0.8" ZIndex="99" Padding="0" ImageSource="arrowright.png" IsVisible="{Binding IsNextButtonVisible}" Clicked="NextCarousel" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.98,0.5,45,80"></Button>
+        <Button ZIndex="99" Clicked="OKButton_Clicked" Background="White" Padding="0" HorizontalOptions="Center"
+                ImageSource="xmark.png" CornerRadius="20" WidthRequest="50" HeightRequest="50" Opacity="0.8"
+                AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.98,0.02">
+            <Button.Shadow>
+                <Shadow Brush="#718396" Offset="0,3" Radius="10" Opacity="1" />
+            </Button.Shadow>
+        </Button>
+        <CarouselView Loop="False" x:Name="Carousel" ItemsSource="{Binding ItemsSource}" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" SnapPointsType="Mandatory" SnapPointsAlignment="Center" />
+            </CarouselView.ItemsLayout>
+            <CarouselView.ItemTemplate>
+                <DataTemplate >
+                    <Image Source="{Binding .}" Aspect="AspectFill" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    </Image>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </AbsoluteLayout>
+</toolkit:Popup>
+
