@@ -66,7 +66,8 @@ namespace FrontendModule
         private async void LoadIncrementally(object sender, EventArgs e)
         {
             await LoadingIncrementally();
-            await TheCollectionView.ScrollToAsync(0, TheCollectionView.ContentSize.Height, true);
+            // await TheCollectionView.ScrollToAsync(0, TheCollectionView.ContentSize.Height, true);
+            await ParentScrollView.ScrollToAsync(0, ParentScrollView.ContentSize.Height, true);
         }
 
         public Task LoadingIncrementally()

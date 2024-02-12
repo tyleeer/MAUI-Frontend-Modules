@@ -4,7 +4,7 @@
              xmlns:templates="clr-namespace:FrontendModule.Templates"
              x:Class="FrontendModule.MainPage">
 
-    <ScrollView>
+    <ScrollView x:Name="ParentScrollView">
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
